@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LetsChat - Realtime Node Socket.io Chat App</title>
+    <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <script defer src="JS/client.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="CSS/emojionearea.min.css">
+    <script src="JS/emojionearea.min.js"></script>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <nav>
+        <img class="logo" src="icon.png" alt="LetsChat">
+        <h1>Web ChatApp</h1>
+    </nav>
+
+    <div class="container">
+        <div class="message left">Admin: Say,Hi to your friends</div>
+       
+    </div>
+
+    <div class="send">
+
+
+        <form action="#" id="send-container">
+            <input type="text" name="messageInp" id="messageInp">
+            <script>
+                $(document).ready(function () {
+                    $("#messageInp").emojioneArea({
+                        pickerPosition: "top",
+
+                    });
+                })
+            </script>
+            <button class="btn" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> Send</button>
+        </form>
+ 
+    </div>
+
+    <!-- 
+         <pre>
+        <h3>Date and Time</h3>
+        <h4>**1</h4>
+        import java.util.*;
+import java.time.*;
+import java.time.format.*;
+import java.time.temporal.*;
+
+class helloworld{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        System.out.println("input date:- ");
+        String sdate = "22-03-2022";
+        //String to date
+        LocalDate date = LocalDate.parse(sdate,formatter);
+        System.out.println(date);
+        
+        //adding days months year
+        LocalDate plusday = date.plusDays(7);
+        LocalDate plusmonth = date.plusMonths(1);
+        LocalDate plusyear = date.plusYears(1);
+        System.out.println(plusday);
+        System.out.println(plusmonth);
+        System.out.println(plusyear);
+        
+        //geting local date and setting date
+        LocalDate currentdate = LocalDate.now();
+        LocalDate setdate = LocalDate.of(2020,12,3);
+        
+        //string to date
+        String sdates = currentdate.format(formatter);
+        System.out.println(sdates);
+        
+        //comparingDate
+        System.out.println("is date before " + currentdate.isBefore(date));
+        System.out.println("is date after "+ currentdate.isAfter(date));
+        
+        //days between dates
+        long daysbetween = ChronoUnit.DAYS.between(date,currentdate);
+        
+        //day of week
+        DayOfWeek weekday = currentdate.getDayOfWeek();
+        System.out.println(weekday);
+    
+        <br>
+        <h4>**2</h4>
+        import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.time.DayOfWeek;
+
+public class DateDifference {
+
+    public static void main(String[] args) {
+        LocalDate date1 = LocalDate.of(2024, 5, 1); // replace with your start date
+        LocalDate date2 = LocalDate.of(2024, 6, 1); // replace with your end date
+
+        long daysBetween = ChronoUnit.DAYS.between(date1, date2);
+        System.out.println("Number of days between: " + daysBetween);
+
+        long sundaysBetween = date1.datesUntil(date2)
+            .filter(d -> d.getDayOfWeek() == DayOfWeek.SUNDAY)
+            .count();
+        System.out.println("Number of Sundays between: " + sundaysBetween);
+
+        long weekendsBetween = date1.datesUntil(date2)
+            .filter(d -> d.getDayOfWeek() == DayOfWeek.SATURDAY || d.getDayOfWeek() == DayOfWeek.SUNDAY)
+            .count();
+        System.out.println("Number of weekends between: " + weekendsBetween);
+    }
+}
+
+<br><br>
+
+
+    <h3> Str.split(" ")</h3>
+    \\d: Matches any digit character, equivalent to [0-9].
+\\D: Matches any non-digit character, equivalent to [^0-9].
+\\w: Matches any word character, including letters, digits, and underscores, equivalent to [a-zA-Z_0-9].
+\\W: Matches any non-word character, equivalent to [^a-zA-Z_0-9].
+\\s: Matches any whitespace character, including spaces, tabs, and line breaks.
+\\S: Matches any non-whitespace character.
+.: Matches any character except newline.
+^: Matches the beginning of a line.
+$: Matches the end of a line.
+[abc]: Matches any one of the characters a, b, or c.
+[^abc]: Matches any character that is not a, b, or c.
+a|b: Matches either a or b.
+(ab): Matches the exact sequence “ab”.
+a?: Matches 0 or 1 occurrence of a.
+a*: Matches 0 or more occurrences of a.
+a+: Matches 1 or more occurrences of a.
+a{3}: Matches exactly 3 occurrences of a.
+a{3,}: Matches 3 or more occurrences of a.
+a{3,6}: Matches between 3 and 6 occurrences of a
+
+
+<br><br>
+
+
+    <h3>File-Hand</h3>
+
+    <h4>**1</h4>
+    try{
+        //create:-
+        // File fobj=new File("file.txt");
+        // boolean c=fobj.createNewFile();
+        // System.out.println(c);
+        
+        //write :-
+        // FileWriter fw=new FileWriter("file.txt");
+        // fw.write("this is the content");
+        // fw.close();
+
+        //read:-
+        // FileReader frr=new FileReader("file.txt");
+        // Scanner fr=new Scanner(frr);
+        // while(fr.hasNextLine()){
+        //     String d=fr.nextLine();
+        //     System.out.print(d);
+        // }
+
+        //append:-
+        // FileWriter fw=new FileWriter("file.txt",true);
+        // // fw.nextLine;
+        // fw.write(" Appended content");
+        // fw.close();
+
+
+
+        //Buffered
+        // BufferedWriter bfw=new BufferedWriter(new FileWriter("file.txt",true));
+        // bfw.write("\nthis content is written using bufferedWriter");
+        // bfw.close();
+
+        // 
+        // BufferedReader bfr=new BufferedReader(new FileReader("file.txt"));
+        // String line;
+        // while((line=bfr.readLine())!=null){
+        //     System.out.print(line);
+        // }
+        
+        //Special Character//digits//letters
+        String f=Files.readString(Path.of("file.txt"));
+        int sp=0;
+        for(char c: f.toCharArray()){
+            if(Character.isDigit(c)){//(!Character.isLetterOrDigit(c)){
+                sp++;
+            }
+        }
+        System.out.println(sp);
+        
+    }catch(IOException s){
+        System.out.println("Exception caused -"+s.getMessage());
+    }
+
+    <br><h4>**2</h4>
+    import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.io.IOException;
+import java.util.regex.Pattern;
+
+public class ProcessFile {
+    public static void main(String[] args) {
+        String fileName = "input.txt"; // replace with your file name
+
+        try {
+            String content = new String(Files.readAllBytes(Paths.get(fileName)));
+
+            // Remove numbers
+            String noNumbers = content.replaceAll("\\d", "");
+
+            // Convert to uppercase
+            String upperCase = noNumbers.toUpperCase();
+
+            // Remove vowels
+            String noVowels = upperCase.replaceAll("[AEIOU]", "");
+
+            // Count special characters
+            long specialCharsCount = upperCase.replaceAll("[A-Za-z0-9 ]", "").length();
+
+            // Count vowels and consonants
+            long vowelsCount = upperCase.replaceAll("[^AEIOU]", "").length();
+            long consonantsCount = upperCase.replaceAll("[^BCDFGHJKLMNPQRSTVWXYZ]", "").length();
+
+            System.out.println("Processed text: " + noVowels);
+            System.out.println("Number of special characters: " + specialCharsCount);
+            System.out.println("Number of vowels: " + vowelsCount);
+            System.out.println("Number of consonants: " + consonantsCount);
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
+    }
+}
+<br>
+
+
+    <h3>String</h3>
+    public class StringBufferDemo {
+        public static void main(String[] args) {
+            // Create a new StringBuffer
+            StringBuffer sb = new StringBuffer("Hello");
+    
+            // Append " World" to the StringBuffer
+            sb.append(" World");
+    
+            // Insert a comma after "Hello"
+            sb.insert(5, ",");
+    
+            // Replace "World" with "Java"
+            sb.replace(7, 12, "Java");
+    
+            // Delete the comma
+            sb.deleteCharAt(5);
+    
+            // Reverse the StringBuffer
+            sb.reverse();
+    
+            // Display the capacity of the StringBuffer
+            System.out.println("Capacity: " + sb.capacity());
+    
+            // Ensure the capacity is at least 50
+            sb.ensureCapacity(50);
+    
+            // Display the character at index 1
+            System.out.println("Character at index 1: " + sb.charAt(1));
+    
+            // Display the length of the StringBuffer
+            System.out.println("Length: " + sb.length());
+    
+            // Extract a substring from index 2 to 5
+            String substring = sb.substring(2, 5);
+    
+            // Display the substring
+            System.out.println("Substring (index 2 to 5): " + substring);
+    
+            // Display the final content of the StringBuffer
+            System.out.println("Final StringBuffer: " + sb);
+        }
+    }
+<br><br>
+
+    <h3>Arrays</h3>
+    public class ReverseSort {
+        public static void main(String[] args) {
+            Integer[] numbers = {3, 1, 4, 6, 5, 2};
+            Arrays.sort(numbers, Collections.reverseOrder());
+            System.out.println(Arrays.toString(numbers));
+        }
+    }
+
+    public class ReverseSortStrings {
+        public static void main(String[] args) {
+            String[] strings = {"Banana", "Apple", "Orange", "Mango", "Grape"};
+            Arrays.sort(strings, Collections.reverseOrder());
+            System.out.println(Arrays.toString(strings));
+        }
+    }
+
+
+    public class AlphabeticalSort {
+        public static void main(String[] args) {
+            String[] strings = {"Banana", "Apple", "Orange", "Mango", "Grape"};
+            Arrays.sort(strings);
+            System.out.println(Arrays.toString(strings));
+        }
+    }
+
+
+    public class LexicographicalSort {
+        public static void main(String[] args) {
+            String[] strings = {"banana", "Apple", "orange", "Mango", "grape"};
+            Arrays.sort(strings, String.CASE_INSENSITIVE_ORDER);
+            System.out.println(Arrays.toString(strings));
+        }
+    }
+
+
+    public class LexicographicalSortChars {
+        public static void main(String[] args) {
+            Character[] chars = {'b', 'a', 'n', 'A', 'N', 'G'};
+            Arrays.sort(chars, Collections.reverseOrder());
+            System.out.println(Arrays.toString(chars));
+        }
+    }
+
+
+    </pre>
+     -->
+</body>
+
+</html>
